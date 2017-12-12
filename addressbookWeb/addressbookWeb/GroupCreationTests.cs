@@ -7,10 +7,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace SeleniumTests
+namespace WebAddressbookTests
 {
-    [TestFixture]
-    public class Untitled
+    [TestFixture] //attribute, NUnit framework analyziert sie
+    public class GroupCreationTests
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -20,7 +20,12 @@ namespace SeleniumTests
         [SetUp]
         public void SetupTest()
         {
-            driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.UseLegacyImplementation = true;
+            options.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+
+            driver = new FirefoxDriver(options);
+
             baseURL = "http://localhost/";
             verificationErrors = new StringBuilder();
         }
@@ -40,9 +45,9 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheUntitledTest()
+        public void GroupCreationTest()
         {
-            driver.Navigate().GoToUrl(baseURL + "/addressbook/");
+            driver.Navigate().GoToUrl(baseURL + "addressbook/");
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys("admin");
             driver.FindElement(By.Name("pass")).Clear();
