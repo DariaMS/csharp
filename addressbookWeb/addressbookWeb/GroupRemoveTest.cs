@@ -10,17 +10,18 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactCreationTests : BaseTest
+    public class GroupRemove : BaseTest
     {
-        
+
         [Test]
-        public void ContactCreation()
+        public void GroupRemoveTest()
         {
             OpenHomePage();
             Login(new AccountData("admin", "secret"));
-            AddContact(new ContactData("Max","Ivanov"));
-            // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
-            LogOut();
-        }
+            GoToGroupsPage();
+            SelectGroup(1);
+            DeleteGroup();
+            GoToGroupsPage();
+        } 
     }
 }
