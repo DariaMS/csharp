@@ -12,9 +12,25 @@ namespace WebAddressbookTests
         private string header = "";
         private string footer = "";
 
-        public string Name { get; set;}
-        public string Header { get; set; }
-        public string Footer { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Header
+        {
+            get { return header; }
+            set { header = value; }
+        }
+
+        public string Footer
+        {
+            get { return footer; }
+            set { footer = value; }
+        }
+
+        //public string Header { get; set; }
 
         public GroupData(string name)
         {

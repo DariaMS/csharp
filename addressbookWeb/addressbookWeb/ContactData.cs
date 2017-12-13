@@ -6,9 +6,21 @@
         private string lastname;
         private int dob;
 
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public int Dob { get; set; }
+        public string Firstname
+        {
+            get { return firstname; }
+            set { firstname = value; }
+        }
+        public string Lastname
+        {
+            get { return lastname; }
+            set { lastname = value; }
+        }
+        public int Dob
+        {
+            get { return dob; }
+            set { dob = value; }
+        }
 
         public ContactData(string firstname, string lastname)
         {
