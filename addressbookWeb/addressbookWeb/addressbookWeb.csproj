@@ -58,20 +58,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountData.cs" />
-    <Compile Include="HelperBase.cs" />
-    <Compile Include="TestBase.cs" />
-    <Compile Include="ContactData.cs" />
-    <Compile Include="ContactHelper.cs" />
-    <Compile Include="GroupData.cs" />
-    <Compile Include="GroupHelper.cs" />
-    <Compile Include="LoginHelper.cs" />
-    <Compile Include="NavigationHelper.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="models\AccountData.cs" />
+    <Compile Include="AppManager.cs" />
+    <Compile Include="helpers\HelperBase.cs" />
+    <Compile Include="tests\TestBase.cs" />
+    <Compile Include="models\ContactData.cs" />
+    <Compile Include="helpers\ContactHelper.cs" />
+    <Compile Include="models\GroupData.cs" />
+    <Compile Include="helpers\GroupHelper.cs" />
+    <Compile Include="helpers\LoginHelper.cs" />
+    <Compile Include="helpers\NavigationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroupCreationTests.cs" />
-    <Compile Include="ContactCreationTests.cs" />
-    <Compile Include="GroupRemoveTest.cs" />
+    <Compile Include="tests\GroupCreationTests.cs" />
+    <Compile Include="tests\ContactCreationTests.cs" />
+    <Compile Include="tests\GroupRemoveTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

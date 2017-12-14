@@ -1,28 +1,48 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    public class BaseTest
+    public class AppManager
     {
-
         protected IWebDriver driver;
-        private StringBuilder verificationErrors;
         protected string baseURL;
+
+
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
+        private StringBuilder verificationErrors;
 
-        [SetUp]
-        public void SetupTest()
+
+
+        //properties
+        public LoginHelper LoginH
+        {
+            get { return loginHelper; }
+        }
+
+        public NavigationHelper NavigationH
+        {
+            get { return navigator; }
+        }
+
+        public GroupHelper GroupH
+        {
+            get { return groupHelper; }
+        }
+
+        public ContactHelper ContactH
+        {
+            get { return contactHelper; }
+        }
+
+        //constructor 
+        public AppManager()
         {
             FirefoxOptions options = new FirefoxOptions();
             options.UseLegacyImplementation = true;
@@ -30,16 +50,16 @@ namespace WebAddressbookTests
 
             driver = new FirefoxDriver(options); //to work with browser
             baseURL = "http://localhost/";
-            verificationErrors = new StringBuilder();
 
             loginHelper = new LoginHelper(driver);
             navigator = new NavigationHelper(driver, baseURL); //initialisation
             groupHelper = new GroupHelper(driver);
             contactHelper = new ContactHelper(driver);
+
         }
 
-        [TearDown]
-        public void TeardownTest()
+        //methods
+        public void Stop()
         {
             try
             {
