@@ -16,11 +16,11 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreation()
         {
-            OpenHomePage();
-            Login(new AccountData("admin", "secret"));
-            AddContact(new ContactData("Max","Ivanov"));
+            navigator.OpenHomePage();
+            loginHelper.Login(new AccountData("admin", "secret"));
+            contactHelper.AddContact(new ContactData("Max","Ivanov"));
             // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
-            LogOut();
+            loginHelper.LogOut();
         }
     }
 }
