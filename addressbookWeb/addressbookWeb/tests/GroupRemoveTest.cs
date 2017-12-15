@@ -1,21 +1,19 @@
 ﻿using NUnit.Framework;
-
+using System.Threading;
 
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupRemove : BaseTest
+    public class GroupRemove : TestBase
     {
 
         [Test]
         public void GroupRemoveTest()
         {
-            app.NavigationH.OpenHomePage();
-            app.LoginH.Login(new AccountData("admin", "secret"));
-            app.NavigationH.GoToGroupsPage();
-            app.GroupH.SelectGroup(1);
+            app.GroupH.SelectGroup(3);
             app.GroupH.DeleteGroup();
-            app.NavigationH.GoToGroupsPage();
+              //  .SelectGroup(1)
+              //  .DeleteGroup;
         } 
     }
 }

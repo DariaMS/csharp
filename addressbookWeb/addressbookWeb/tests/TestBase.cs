@@ -3,7 +3,7 @@
 
 namespace WebAddressbookTests
 {
-    public class BaseTest
+    public class TestBase
     {
         protected AppManager app;
 
@@ -11,6 +11,9 @@ namespace WebAddressbookTests
         public void SetupTest()
         {
             app = new AppManager(); //initiation
+            app.NavigationH.OpenHomePage();
+            app.LoginH.Login(new AccountData("admin", "secret"));
+            app.LoginH.Logout();
         }
 
         [TearDown]

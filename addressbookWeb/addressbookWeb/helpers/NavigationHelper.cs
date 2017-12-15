@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
@@ -11,8 +6,8 @@ namespace WebAddressbookTests
     {
         public string baseURL;
 
-        public NavigationHelper(IWebDriver driver, string baseURL) 
-            : base(driver)
+        public NavigationHelper(AppManager manager, string baseURL) 
+            : base(manager)
         { this.baseURL = baseURL; }
 
         public void OpenHomePage()
@@ -23,6 +18,11 @@ namespace WebAddressbookTests
         public void GoToGroupsPage()
         {
             driver.FindElement(By.LinkText("groups")).Click();
+        }
+
+        public void GoToContactsPage()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
         }
 
         public void ReturnToGroupsPage()

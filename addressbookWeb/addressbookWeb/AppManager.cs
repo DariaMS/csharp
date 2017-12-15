@@ -21,6 +21,12 @@ namespace WebAddressbookTests
 
 
         //properties
+
+        public IWebDriver Driver
+        {
+            get { return driver; }
+        }
+
         public LoginHelper LoginH
         {
             get { return loginHelper; }
@@ -41,6 +47,7 @@ namespace WebAddressbookTests
             get { return contactHelper; }
         }
 
+
         //constructor 
         public AppManager()
         {
@@ -51,10 +58,10 @@ namespace WebAddressbookTests
             driver = new FirefoxDriver(options); //to work with browser
             baseURL = "http://localhost/";
 
-            loginHelper = new LoginHelper(driver);
-            navigator = new NavigationHelper(driver, baseURL); //initialisation
-            groupHelper = new GroupHelper(driver);
-            contactHelper = new ContactHelper(driver);
+            loginHelper = new LoginHelper(this);
+            navigator = new NavigationHelper(this, baseURL); //initialisation
+            groupHelper = new GroupHelper(this);
+            contactHelper = new ContactHelper(this);
 
         }
 

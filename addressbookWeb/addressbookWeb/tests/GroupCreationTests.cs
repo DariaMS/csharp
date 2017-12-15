@@ -4,25 +4,27 @@
 namespace WebAddressbookTests
 {
     [TestFixture] //attribute, NUnit framework analyziert sie
-    public class GroupCreationTests : BaseTest
+    public class GroupCreationTests : TestBase
     {
 
         [Test]
         public void GroupCreationTest()
         {
-            app.NavigationH.OpenHomePage();
-            app.LoginH.Login(new AccountData("admin", "secret"));
-            app.NavigationH.GoToGroupsPage();
-            app.GroupH.InitGroupCreation();
-
             GroupData group = new GroupData("aaa");
             group.Header = "bbb";
             group.Footer = "ccc";
-            app.GroupH.FillGroupForm(group);
 
-            app.GroupH.SubmitGroupCreation();
-            app.NavigationH.ReturnToGroupsPage();
-            app.LoginH.LogOut();
+            app.GroupH.Create(group);
+        }
+
+        [Test]
+        public void EmptyGroupCreationTest()
+        {
+            GroupData group = new GroupData("");
+            group.Header = "";
+            group.Footer = "";
+
+            app.GroupH.Create(group);
         }
     }
 }

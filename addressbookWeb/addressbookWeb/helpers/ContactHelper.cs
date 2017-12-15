@@ -10,10 +10,10 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-        public ContactHelper(IWebDriver driver) 
-            : base(driver){}
+        public ContactHelper(AppManager manager) 
+            : base(manager) {}
 
-        public void AddContact(ContactData contact)
+        public ContactHelper AddContact(ContactData contact)
         {
             driver.FindElement(By.LinkText("add new")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -33,6 +33,8 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("byear")).Clear();
             driver.FindElement(By.Name("byear")).SendKeys("2000");
             new SelectElement(driver.FindElement(By.Name("new_group"))).SelectByText("aaa");
+
+            return this;
         }
 
     }
