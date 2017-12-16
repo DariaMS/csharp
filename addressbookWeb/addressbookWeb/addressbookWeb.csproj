@@ -58,6 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tests\ContactRenameTests.cs" />
+    <Compile Include="tests\ContactEditTests.cs" />
     <Compile Include="models\AccountData.cs" />
     <Compile Include="AppManager.cs" />
     <Compile Include="helpers\HelperBase.cs" />

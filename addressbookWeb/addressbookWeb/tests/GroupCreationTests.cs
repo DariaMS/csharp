@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 
-
 namespace WebAddressbookTests
 {
     [TestFixture] //attribute, NUnit framework analyziert sie

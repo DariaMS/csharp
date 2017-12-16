@@ -2,8 +2,10 @@
 {
     public class ContactData
     {
-        private string firstname;
-        private string lastname;
+        private string firstname= "";
+        private string lastname = "";
+        
+        // kakoy tip dannih dat date rogdeniya?
         private int dob;
 
         public string Firstname
@@ -34,7 +36,5 @@
             this.lastname = lastname;
             this.dob = dob;
         }
-
-
     }
 }
