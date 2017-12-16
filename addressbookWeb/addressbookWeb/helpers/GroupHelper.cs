@@ -9,6 +9,42 @@ namespace WebAddressbookTests
         public GroupHelper(AppManager manager) 
             : base(manager) {}
 
+        public GroupHelper Remove(int v)
+        {
+            manager.NavigationH.GoToGroupsPage();
+            SelectGroup(v);
+            DeleteGroup();
+            manager.NavigationH.GoToGroupsPage();
+            return this;
+        }
+
+        public GroupHelper Edit(int v, GroupData newdata)
+        {
+            manager.NavigationH.GoToGroupsPage();
+            SelectGroup(v);
+            //EditGroup(newdata);
+            InitGroupEdit();
+            FillGroupForm(newdata);
+            SubmitGroupEdit();
+            manager.NavigationH.GoToGroupsPage();
+
+            return this;
+        }
+
+        private GroupHelper SubmitGroupEdit()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
+
+        private GroupHelper InitGroupEdit()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+            return this;
+        }
+
+
         public GroupHelper InitGroupCreation()
         {
             driver.FindElement(By.Name("new")).Click();

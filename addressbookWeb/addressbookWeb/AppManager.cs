@@ -13,7 +13,7 @@ namespace WebAddressbookTests
 
 
         protected LoginHelper loginHelper;
-        protected NavigationHelper navigator;
+        protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
         private StringBuilder verificationErrors;
@@ -34,7 +34,7 @@ namespace WebAddressbookTests
 
         public NavigationHelper NavigationH
         {
-            get { return navigator; }
+            get { return navigationHelper; }
         }
 
         public GroupHelper GroupH
@@ -59,13 +59,13 @@ namespace WebAddressbookTests
             baseURL = "http://localhost/";
 
             loginHelper = new LoginHelper(this);
-            navigator = new NavigationHelper(this, baseURL); //initialisation
+            navigationHelper = new NavigationHelper(this, baseURL); //initialisation
             groupHelper = new GroupHelper(this);
             contactHelper = new ContactHelper(this);
 
         }
 
-        //methods
+    
         public void Stop()
         {
             try
@@ -77,19 +77,6 @@ namespace WebAddressbookTests
                 // Ignore errors if unable to close the browser
             }
             Assert.AreEqual("", verificationErrors.ToString());
-        }
-
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
         }
     }
 }

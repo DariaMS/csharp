@@ -4,7 +4,7 @@ namespace WebAddressbookTests
 {
     public class NavigationHelper : HelperBase
     {
-        public string baseURL;
+        private string baseURL;
 
         public NavigationHelper(AppManager manager, string baseURL) 
             : base(manager)

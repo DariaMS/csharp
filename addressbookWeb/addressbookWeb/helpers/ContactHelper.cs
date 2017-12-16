@@ -13,6 +13,13 @@ namespace WebAddressbookTests
         public ContactHelper(AppManager manager) 
             : base(manager) {}
 
+
+        public ContactHelper NavigateContact()
+        {
+            manager.NavigationH.GoToContactsPage();
+            return this;
+        }
+
         public ContactHelper AddContact(ContactData contact)
         {
             driver.FindElement(By.LinkText("add new")).Click();

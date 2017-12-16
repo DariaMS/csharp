@@ -10,8 +10,8 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreation()
         {
-            app.NavigationH.GoToContactsPage();
-            app.ContactH.AddContact(new ContactData("Max","Ivanov"));
+            ContactData contact = new ContactData("Max", "Ivanov");
+            app.ContactH.AddContact(contact);
 
         }
     }

@@ -11,7 +11,20 @@ namespace WebAddressbookTests
         public HelperBase(AppManager manager)
         {
             this.manager = manager;
-            this.driver = manager.Driver;
+            driver = manager.Driver;
+        }
+
+        private bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
         }
     }
 }
