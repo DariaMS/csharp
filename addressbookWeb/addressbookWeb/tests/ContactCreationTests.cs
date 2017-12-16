@@ -11,6 +11,7 @@ namespace WebAddressbookTests
         public void ContactCreation()
         {
             ContactData contact = new ContactData("Max", "Ivanov");
+
             app.ContactH.AddContact(contact);
 
         }
