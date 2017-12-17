@@ -16,7 +16,7 @@ namespace WebAddressbookTests
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
-        private StringBuilder verificationErrors;
+        //private StringBuilder verificationErrors;
 
 
 
