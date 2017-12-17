@@ -20,7 +20,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("groups")).Click();
         }
 
-        public void GoToContactsPage()
+        public void GoToAddContactsPage()
         {
             driver.FindElement(By.LinkText("add new")).Click();
         }

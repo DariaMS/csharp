@@ -99,7 +99,7 @@ namespace WebAddressbookTests
 
         public GroupHelper DeleteGroup()
         {
-            driver.FindElement(By.XPath("(//input[@name='delete'])[2]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='delete'])")).Click();
             return this;
         }
     }

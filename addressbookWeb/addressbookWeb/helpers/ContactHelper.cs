@@ -12,64 +12,79 @@ namespace WebAddressbookTests
 
         public ContactHelper AddContact(ContactData contact)
         {
-           // manager.NavigationH.GoToContactsPage();
             InitContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
-            manager.NavigationH.GoToContactsPage();
+            manager.NavigationH.GoToAddContactsPage();
             return this;
         }
 
         public ContactHelper Delete(int v)
         {
-            NavigateContact();
             SelectContact(v);
-            InitContactEdit();
-            DeleteContact();
-            NavigateContact();
+            DeleteClickContact();
             return this;
         }
 
-        public ContactHelper DeleteContact()
+        //Delete Contact via EditForm
+        public ContactHelper DeleteEditForm(int v)
         {
-            driver.FindElement(By.Name("Delete")).Click();
+            SelectEditContact(v);
+            //InitContactEdit();
+            DeleteClickContact();
+            return this;
+        }
+
+        public ContactHelper DeleteClickContact()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             return this;
         }
 
         public ContactHelper Edit(int v, ContactData newdata)
         {
-            NavigateContact();
-            SelectContact(v);
-            InitContactEdit();
+            SelectEditContact(v);
+           // InitContactEdit();
             FillContactForm(newdata);
             SubmitContactEdit();
-            NavigateContact();
             return this;
         }
 
         public ContactHelper SubmitContactEdit()
         {
 
-            driver.FindElement(By.Name("Update")).Click();
+            driver.FindElement(By.Name("update")).Click();
             return this;
         }
 
-        public ContactHelper InitContactEdit()
+        public ContactHelper SelectEditContact(int index)
         {
-            driver.FindElement(By.Name("edit")).Click();
-           //driver.FindElement(By.XPath("//a[@title='Edit']")).Click();  will this locator also work?
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])["+ index +"]")).Click();
+            //driver.FindElement(By.XPath("(//input[@name='selected[]'][@id=8])")).Click();
+            driver.FindElement(By.XPath(".//*[@title='Edit']")).Click();
             return this;
         }
+
+
+        /*
+        public ContactHelper InitContactEdit()
+        {
+           
+            driver.FindElement(By.XPath(".//*[@title='Edit']")).Click();
+            return this;
+
+        }
+        */
 
         public ContactHelper SelectContact(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])["+ index +"]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
         }
 
-        public ContactHelper NavigateContact()
+        public ContactHelper NavigateAddContact()
         {
-            manager.NavigationH.GoToContactsPage();
+            manager.NavigationH.GoToAddContactsPage();
             return this;
         }
 
