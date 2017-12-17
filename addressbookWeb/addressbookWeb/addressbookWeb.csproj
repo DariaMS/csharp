@@ -58,7 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tests\ContactRenameTests.cs" />
+    <Compile Include="tests\ContactRemoveTests.cs" />
     <Compile Include="tests\ContactEditTests.cs" />
     <Compile Include="models\AccountData.cs" />
     <Compile Include="AppManager.cs" />
@@ -78,6 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tests\contact\" />
+    <Folder Include="tests\group\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

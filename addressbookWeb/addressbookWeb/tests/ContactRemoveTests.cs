@@ -9,15 +9,14 @@ namespace WebAddressbookTests
 {
     [TestFixture]
 
-    public class ContactEditTests : TestBase
+    public class ContactDeleteTests : TestBase
     {
+
         [Test]
-        public void ContactEditTest()
+        public void ContactDeleteTest()
         {
-            ContactData newdata = new ContactData("alexa", "gurova");
-            app.ContactH.Edit(1, newdata);
+            app.ContactH.Delete(2);
         }
 
-
     }
-}   
+}

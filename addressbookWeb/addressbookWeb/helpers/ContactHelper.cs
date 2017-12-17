@@ -1,10 +1,6 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using OpenQA.Selenium;
+
 
 namespace WebAddressbookTests
 {
@@ -16,11 +12,58 @@ namespace WebAddressbookTests
 
         public ContactHelper AddContact(ContactData contact)
         {
-            manager.NavigationH.GoToContactsPage();
+           // manager.NavigationH.GoToContactsPage();
             InitContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
             manager.NavigationH.GoToContactsPage();
+            return this;
+        }
+
+        public ContactHelper Delete(int v)
+        {
+            NavigateContact();
+            SelectContact(v);
+            InitContactEdit();
+            DeleteContact();
+            NavigateContact();
+            return this;
+        }
+
+        public ContactHelper DeleteContact()
+        {
+            driver.FindElement(By.Name("Delete")).Click();
+            return this;
+        }
+
+        public ContactHelper Edit(int v, ContactData newdata)
+        {
+            NavigateContact();
+            SelectContact(v);
+            InitContactEdit();
+            FillContactForm(newdata);
+            SubmitContactEdit();
+            NavigateContact();
+            return this;
+        }
+
+        public ContactHelper SubmitContactEdit()
+        {
+
+            driver.FindElement(By.Name("Update")).Click();
+            return this;
+        }
+
+        public ContactHelper InitContactEdit()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+           //driver.FindElement(By.XPath("//a[@title='Edit']")).Click();  will this locator also work?
+            return this;
+        }
+
+        public ContactHelper SelectContact(int index)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])["+ index +"]")).Click();
             return this;
         }
 
