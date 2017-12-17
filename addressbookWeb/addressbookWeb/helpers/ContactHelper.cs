@@ -23,14 +23,21 @@ namespace WebAddressbookTests
         {
             SelectContact(v);
             DeleteClickContact();
+            AlertDeleteContact();
+            return this;
+        }
+
+        public ContactHelper AlertDeleteContact()
+        {
+            driver.SwitchTo().Alert().Accept();
             return this;
         }
 
         //Delete Contact via EditForm
         public ContactHelper DeleteEditForm(int v)
         {
-            SelectEditContact(v);
-            //InitContactEdit();
+            SelectContact(v);
+            InitContactEdit(v);
             DeleteClickContact();
             return this;
         }
@@ -43,8 +50,8 @@ namespace WebAddressbookTests
 
         public ContactHelper Edit(int v, ContactData newdata)
         {
-            SelectEditContact(v);
-           // InitContactEdit();
+            SelectContact(v);
+            InitContactEdit(v);
             FillContactForm(newdata);
             SubmitContactEdit();
             return this;
@@ -57,29 +64,21 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public ContactHelper SelectEditContact(int index)
+        public ContactHelper SelectContact(int index)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])["+ index +"]")).Click();
             //driver.FindElement(By.XPath("(//input[@name='selected[]'][@id=8])")).Click();
-            driver.FindElement(By.XPath(".//*[@title='Edit']")).Click();
             return this;
         }
 
 
-        /*
-        public ContactHelper InitContactEdit()
+
+        public ContactHelper InitContactEdit(int index)
         {
            
-            driver.FindElement(By.XPath(".//*[@title='Edit']")).Click();
+            driver.FindElement(By.XPath("(.//*[@title='Edit'])["+ index +"]")).Click();
             return this;
 
-        }
-        */
-
-        public ContactHelper SelectContact(int index)
-        {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
-            return this;
         }
 
         public ContactHelper NavigateAddContact()
