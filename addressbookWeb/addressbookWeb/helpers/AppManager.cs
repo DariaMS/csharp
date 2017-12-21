@@ -57,7 +57,7 @@ namespace WebAddressbookTests
             options.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
 
             driver = new FirefoxDriver(options); //to work with browser
-            baseURL = "http://localhost/";
+            baseURL = "http://localhost";
 
             loginHelper = new LoginHelper(this);
             navigationHelper = new NavigationHelper(this, baseURL); //initialisation

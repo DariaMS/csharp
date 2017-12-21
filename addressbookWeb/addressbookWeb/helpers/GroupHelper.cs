@@ -92,5 +92,10 @@ namespace WebAddressbookTests
             driver.FindElement(By.XPath("(//input[@name='delete'])")).Click();
             return this;
         }
+
+        public List<GroupData> GetGroupList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
