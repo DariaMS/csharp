@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -16,9 +17,9 @@ namespace WebAddressbookTests
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
-        //private StringBuilder verificationErrors;
 
-
+        //private static AppManager instance; // static object
+        private static ThreadLocal<AppManager> app = new ThreadLocal<AppManager>();
 
         //properties
 
@@ -49,7 +50,7 @@ namespace WebAddressbookTests
 
 
         //constructor 
-        public AppManager()
+        private AppManager()
         {
             FirefoxOptions options = new FirefoxOptions();
             options.UseLegacyImplementation = true;
@@ -62,21 +63,39 @@ namespace WebAddressbookTests
             navigationHelper = new NavigationHelper(this, baseURL); //initialisation
             groupHelper = new GroupHelper(this);
             contactHelper = new ContactHelper(this);
-
         }
 
-    
-        public void Stop()
+        //destructor
+
+        ~AppManager()
         {
             try
-            {
-                driver.Quit();
-            }
+                {
+                    driver.Quit();
+                }
             catch (Exception)
+                {
+                    // Ignore errors if unable to close the browser
+                }
+                // Assert.AreEqual("", verificationErrors.ToString());
+        }
+
+        //singleton
+        //method returns always just 1 object
+        //Solution - threads, GetInstance will analyze 
+        //if there are an instance in current thread or not
+        //in this way we can run our tests parallel
+
+        public static AppManager GetInstance()
+        {
+            if(! app.IsValueCreated)
             {
-                // Ignore errors if unable to close the browser
+                AppManager newInstance = new AppManager();
+                newInstance.NavigationH.OpenHomePage();
+                app.Value = newInstance;
+                //instance = new AppManager();
             }
-           // Assert.AreEqual("", verificationErrors.ToString());
+            return app.Value;
         }
     }
 }

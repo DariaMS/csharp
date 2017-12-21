@@ -5,13 +5,13 @@ namespace WebAddressbookTests
 {
     [TestFixture]
 
-    public class GroupEditTests : TestBase
+    public class GroupEditTests : AuthTestBase
     {
         [Test]
         public void GroupEdit()
         {
             //prepare test data:
-            GroupData newdata = new GroupData("name_2");
+            GroupData newdata = new GroupData("name_edit");
             newdata.Header = "null";
             newdata.Footer = "null";
 

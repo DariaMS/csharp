@@ -58,11 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tests\AuthTestBase.cs" />
     <Compile Include="tests\ContactRemoveTests.cs" />
     <Compile Include="tests\ContactEditTests.cs" />
     <Compile Include="models\AccountData.cs" />
-    <Compile Include="AppManager.cs" />
+    <Compile Include="helpers\AppManager.cs" />
     <Compile Include="helpers\HelperBase.cs" />
+    <Compile Include="tests\LoginTests.cs" />
     <Compile Include="tests\TestBase.cs" />
     <Compile Include="models\ContactData.cs" />
     <Compile Include="helpers\ContactHelper.cs" />

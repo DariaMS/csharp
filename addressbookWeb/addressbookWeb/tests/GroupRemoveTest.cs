@@ -4,7 +4,7 @@ using System.Threading;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupRemove : TestBase
+    public class GroupRemove : AuthTestBase
     {
 
         [Test]

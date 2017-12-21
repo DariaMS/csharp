@@ -75,16 +75,6 @@ namespace WebAddressbookTests
 
         }
 
-        public void Type(By locator, string text)
-        {
-            if (text!=null)
-            {
-                driver.FindElement(locator).Clear();
-                driver.FindElement(locator).SendKeys(text);
-            }
-            
-        }
-
         public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();

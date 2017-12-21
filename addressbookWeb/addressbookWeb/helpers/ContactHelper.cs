@@ -95,10 +95,8 @@ namespace WebAddressbookTests
 
         public ContactHelper FillContactForm(ContactData contact)
         {
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
+            Type(By.Name("firstname"), contact.Firstname);
+            Type(By.Name("lastname"), contact.Lastname);
             //driver.FindElement(By.Name("photo")).Clear();
             //driver.FindElement(By.Name("photo")).SendKeys("C:\\Users\\daria\\Desktop\\screenshot_2.png");
             //driver.FindElement(By.Name("company")).Clear();

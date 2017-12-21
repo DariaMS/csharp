@@ -9,12 +9,12 @@ namespace WebAddressbookTests
 {
     [TestFixture]
 
-    public class ContactEditTests : TestBase
+    public class ContactEditTests : AuthTestBase
     {
         [Test]
         public void ContactEditTest()
         {
-            ContactData newdata = new ContactData("masha", "popova");
+            ContactData newdata = new ContactData("sasha", "karlov");
             app.ContactH.Edit(3, newdata);
         }
 

@@ -2,8 +2,9 @@
 
 namespace WebAddressbookTests
 {
+
     [TestFixture] //attribute, NUnit framework analyziert sie
-    public class GroupCreationTests : TestBase
+    public class GroupCreationTests : AuthTestBase
     {
 
         [Test]
