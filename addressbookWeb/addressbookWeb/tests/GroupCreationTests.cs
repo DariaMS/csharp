@@ -29,7 +29,26 @@ namespace WebAddressbookTests
             group.Header = " ";
             group.Footer = " ";
 
+            List<GroupData> groups_old = app.GroupH.GetGroupList();
+
             app.GroupH.Create(group);
+            List<GroupData> groups_new = app.GroupH.GetGroupList();
+            Assert.AreEqual(groups_old.Count + 1, groups_new.Count);
+        }
+
+        [Test]
+        //neagtive test, will find an error
+        public void BadNameGroupCreationTest()
+        {
+            GroupData group = new GroupData("a'a");
+            group.Header = " ";
+            group.Footer = " ";
+
+            List<GroupData> groups_old = app.GroupH.GetGroupList();
+
+            app.GroupH.Create(group);
+            List<GroupData> groups_new = app.GroupH.GetGroupList();
+            Assert.AreEqual(groups_old.Count + 1, groups_new.Count);
         }
     }
 }
